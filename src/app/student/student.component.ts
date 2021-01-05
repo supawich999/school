@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { student } from '../../models/student'
+import { student } from '../../models/student';
+
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+
+  
+
+  deletealert(){
+    alert("ลบแล้วแต่ไม่ออก")
+    
+  }
 
   data01: student[] = [
     {

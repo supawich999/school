@@ -4,4 +4,84 @@
 <h1>
 hello student
 </h1>
-<h2>dffd</h2>
+<h1>Show Students</h1>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name Surname</th>
+        <th scope="col">Address</th>
+        <th scope="col">Age</th>
+        <th scope="col">Department</th>
+        <th scope="col">Major</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Delete Student</th>
+        <th scope="col">Edit Student</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of data01">
+        <th scope="row">{{ d.stuId }}</th>
+        <td>{{ d.stuNameSurname }}</td>
+        <td>{{ d.stuAddress }}</td>
+        <td>{{ d.stuAge }}</td>
+        <td>{{ d.stuPak }}</td>
+        <td>{{ d.stuSaka }}</td>
+        <td>{{ d.subL }}</td>
+        <td><button type="button" class="btn btn-outline-danger" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()" >
+            Delete
+          </button></td>
+          <td><button type="button" class="btn btn-outline-warning" ngbPopover="Edit" triggers="mouseenter:mouseleave" popoverTitle="Click to Edit "  >
+            Edit
+          </button></td>
+
+      </tr>
+      </table>
+      <hr>
+      <h1>Add Student</h1>
+<div>
+      <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            <label class="form-label">ID</label>
+            <input  class="form-control" placeholder="" >
+            </div>
+          
+          <div class="col-md-3">
+            <label  class="form-label">pass</label>
+            <input  class="form-control" placeholder="" >
+          </div>
+        
+          <div class="col-md-6">
+            <label  class="form-label">Name Surname</label>
+            <input  class="form-control" placeholder=" " >
+          </div>
+        
+          <div class="col-md-6">
+            <label  class="form-label">Address</label>
+            <input  class="form-control" placeholder="" >
+          </div>
+          <div class="col-md-6">
+            <label  class="form-label">Age</label>
+            <input  class="form-control" placeholder="" >
+          </div>
+          <div class="col-md-4">
+            <label  class="form-label">Department</label>
+            <input  class="form-control" placeholder="" >
+          </div>
+          <div class="col-md-4">
+            <label  class="form-label">Major</label>
+            <input  class="form-control" placeholder="" >
+          </div>
+          <div class="col-md-4">
+            <label  class="form-label">Subject</label>
+            <input  class="form-control" placeholder="" >
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success" ngbPopover="Add Sutdeunt" triggers="mouseenter:mouseleave" popoverTitle="Click to Add Sutdeunt" >
+            Add Sutdeunt
+          </button>
+        </div>
+
+
+        
