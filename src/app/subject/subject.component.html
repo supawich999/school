@@ -1,8 +1,38 @@
-<!-- <h5>รายวิชาที่เปิด</h5>
-<table mat-table [dataSource]="myDataArray">
+<h3>รายวิชาที่เปิด</h3>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="subId">
-        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-      </ng-container>
-  </table> -->
+         <!-- Position Column -->
+         <ng-container matColumnDef="subId">
+            <th mat-header-cell *matHeaderCellDef> รหัสวิชา </th>
+            <td mat-cell *matCellDef="let element"> {{element.subId}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="subName">
+            <th mat-header-cell *matHeaderCellDef> ชื่อวิชา </th>
+            <td mat-cell *matCellDef="let element"> {{element.subName}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="subPak">
+            <th mat-header-cell *matHeaderCellDef> ภาควิชา </th>
+            <td mat-cell *matCellDef="let element"> {{element.subPak}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="subSaka">
+            <th mat-header-cell *matHeaderCellDef> สาขาวิชา </th>
+            <td mat-cell *matCellDef="let element"> {{element.subSaka}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="subStatus">
+            <th mat-header-cell *matHeaderCellDef> สถานะ </th>
+            <td mat-cell *matCellDef="let element"> {{element.subStatus}} </td>
+        </ng-container>
+
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+   
+  </table>
+
+  <br>
