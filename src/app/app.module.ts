@@ -9,6 +9,7 @@ import { StudentComponent } from './student/student.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SubjectComponent } from './subject/subject.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SubjectComponent } from './subject/subject.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MaterialModule,
     NgbModule
   ],
   providers: [],
