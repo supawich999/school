@@ -1,11 +1,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-
 <h1>
 hello student
 </h1>
 <h1>Show Students</h1>
-<table class="table">
+<table class="table ">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -15,6 +13,7 @@ hello student
         <th scope="col">Department</th>
         <th scope="col">Major</th>
         <th scope="col">Subject</th>
+        <th scope="col">Show Dital</th>
         <th scope="col">Delete Student</th>
         <th scope="col">Edit Student</th>
       </tr>
@@ -31,7 +30,7 @@ hello student
         <td><button type="button" class="btn btn-outline-danger" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()" >
             Delete
           </button></td>
-          <td><button type="button" class="btn btn-outline-warning" ngbPopover="Edit" triggers="mouseenter:mouseleave" popoverTitle="Click to Edit "  >
+          <td><button type="button" class="btn btn-outline-warning" ngbPopover="Edit" triggers="mouseenter:mouseleave" popoverTitle="Click to Edit " (click)="open(content)" >
             Edit
           </button></td>
 
@@ -44,38 +43,38 @@ hello student
         <div class="row">
             <div class="col-md-3">
             <label class="form-label">ID</label>
-            <input  class="form-control" placeholder="" >
+            <input  class="form-control"  >
             </div>
           
           <div class="col-md-3">
-            <label  class="form-label">pass</label>
-            <input  class="form-control" placeholder="" >
+            <label  class="form-label">Password</label>
+            <input  class="form-control"  >
           </div>
         
           <div class="col-md-6">
             <label  class="form-label">Name Surname</label>
-            <input  class="form-control" placeholder=" " >
+            <input  class="form-control"  >
           </div>
         
           <div class="col-md-6">
             <label  class="form-label">Address</label>
-            <input  class="form-control" placeholder="" >
+            <input  class="form-control"  >
           </div>
           <div class="col-md-6">
             <label  class="form-label">Age</label>
-            <input  class="form-control" placeholder="" >
+            <input  class="form-control"  >
           </div>
           <div class="col-md-4">
             <label  class="form-label">Department</label>
-            <input  class="form-control" placeholder="" >
+            <input  class="form-control"  >
           </div>
           <div class="col-md-4">
             <label  class="form-label">Major</label>
-            <input  class="form-control" placeholder="" >
+            <input  class="form-control"  >
           </div>
           <div class="col-md-4">
             <label  class="form-label">Subject</label>
-            <input  class="form-control" placeholder="" >
+            <input  class="form-control"  >
           </div>
         </div>
         <button type="button" class="btn btn-outline-success" ngbPopover="Add Sutdeunt" triggers="mouseenter:mouseleave" popoverTitle="Click to Add Sutdeunt" >
@@ -83,7 +82,45 @@ hello student
           </button>
         </div>
 
+       
+
+
         
 
+        
 
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h1 class="modal-title" id="modal-basic-title">Edit Student</h1>
+            <button type="button" class="close btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            Close</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label  class="form-label">ID</label>
+                <input  class="form-control"  >
+                <label  class="form-label">Password</label>
+                <input  class="form-control"  >
+                <label  class="form-label">Name Surname</label>
+                <input  class="form-control"  >
+                <label  class="form-label">Address</label>
+                <input  class="form-control"  >
+                <label  class="form-label">Age</label>
+                <input  class="form-control"  >
+                <label  class="form-label">Department</label>
+                <input  class="form-control"  >
+                <label  class="form-label">Major</label>
+                <input  class="form-control"  >
+                <label  class="form-label">Subject</label>
+                <input  class="form-control"  >
+               
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Save</button>
+          </div>
+        </ng-template>
         
