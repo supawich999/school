@@ -1,1 +1,148 @@
 <p>teacher works!</p>
+<table class="table table-striped table-dark table-hover">
+    <thead class="table-success">
+        <tr>
+            <th scope="col">ชื่อผู้ใช้</th>
+            <th scope="col">รหัสผ่าน</th>
+            <th scope="col">ชื่อ-นามสกุล</th>
+            <th scope="col">ที่อยู่</th>
+            <th scope="col">อายุ</th>
+            <th scope="col">ภาควิชา</th>
+            <th scope="col">สาขาวิชา</th>
+            <th scope="col">รายวิชาที่สอน</th>
+            <th scope="col">แก้ไขข้อมูล</th>
+            <th scope="col">ลบข้อมูล</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of data01">
+            <th scope="row">{{ d.teaId }}</th>
+            <td>{{ d.teaPass }}</td>
+            <td>{{ d.teaNameSurname }}</td>
+            <td>{{ d.teaAddress }}</td>
+            <td>{{ d.teaAge }}</td>
+            <td>{{ d.teaPak }}</td>
+            <td>{{ d.teaSaka }}</td>
+            <td>{{ d.teaL }}</td>
+            <td>
+                <div class="row">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-warning" id="dropdownForm1" ngbDropdownToggle>แก้ไขข้อมูล</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="teaId">รหัสผู้ใช้ :</label>
+                                        <input type="string" class="form-control" id="teaId" placeholder="กรอกรหัสผู้ใช้" name="teaId" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="teaPass">รหัสผ่าน :</label>
+                                        <input type="string" class="form-control" id="teaPass" placeholder="กรอกรหัสผ่าน" name="teaPass" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="teaNameSurname">ชื่อ-นามสกุล :</label>
+                                        <input type="string" class="form-control" id="teaNameSurname" placeholder="กรอกชื่อ - ชื่อ-นามสกุล" name="teaNameSurname" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="teaAddress">ที่อยู่ :</label>
+                                        <input type="string" class="form-control" id="teaAddress" placeholder="กรอกที่อยู่" name="teaAddress" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="teaAge">อายุ :</label>
+                                        <input type="string" class="form-control" id="teaAge" placeholder="กรอกอายุ" name="teaAge" />
+                                    </div>
+                                    <div class="price">
+                                        <label for="teaPak">ภาควิชา :</label>
+                                        <input type="string" class="form-control" id="teaPak" placeholder="กรอกภาควิชา" name="teaPak" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="teaSaka">สาขาวิชา :</label>
+                                        <input type="string" class="form-control" id="teaSaka" placeholder="กรอกสาขา" name="teaSaka" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="teaL">รายวิชาที่สอน :</label>
+                                        <input type="string" class="form-control" id="teaL" placeholder="กรอกวิชาที่สอน" name="teaL" />
+                                    </div>
+                                    <br />
+                                    <button type="button" onclick="alert('แก้ไขข้อมูลสินค้าเรียบร้อย')" ngbTooltip="คลิ๊กเพื่อทำการลบ" [openDelay]="10" [closeDelay]="50" class="btn btn-success">
+                  แก้ไขข้อมูล
+                </button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" onclick="alert('ลบข้อมูลเรียบร้อย')" ngbTooltip="คลิ๊กเพื่อทำการลบ" [openDelay]="10" [closeDelay]="50">
+          ลบข้อมูลสินค้า
+        </button>
+            </td>
+        </tr>
+    </tbody>
+    <br>
+    <div class="in">
+        <button type="button" class="btn btn-success" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample" ngbTooltip="คลิ๊กเพื่อทำการเพิ่มข้อมูล" [openDelay]="10" [closeDelay]="50">
+            เพิ่มข้อมูล
+          </button>
+    </div>
+
+</table>
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <h2>เพิ่มข้อมูล</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="teaId">รหัสผู้ใช้ :</label>
+                        <input type="string" class="form-control" id="teaId" placeholder="กรอกรหัสผู้ใช้" name="teaId" />
+                    </div>
+                    <div class="form-group">
+                        <label for="teaPass">รหัสผ่าน :</label>
+                        <input type="string" class="form-control" id="teaPass" placeholder="กรอกรหัสผ่าน" name="teaPass" />
+                    </div>
+                    <div class="form-group">
+                        <label for="teaNameSurname">ชื่อ-นามสกุล :</label>
+                        <input type="string" class="form-control" id="teaNameSurname" placeholder="กรอกชื่อ - ชื่อ-นามสกุล" name="teaNameSurname" />
+                    </div>
+                    <div class="form-group">
+                        <label for="teaAddress">ที่อยู่ :</label>
+                        <input type="string" class="form-control" id="teaAddress" placeholder="กรอกที่อยู่" name="teaAddress" />
+                    </div>
+                    <div class="form-group">
+                        <label for="teaAge">อายุ :</label>
+                        <input type="string" class="form-control" id="teaAge" placeholder="กรอกอายุ" name="teaAge" />
+                    </div>
+                    <div class="price">
+                        <label for="teaPak">ภาควิชา :</label>
+                        <input type="string" class="form-control" id="teaPak" placeholder="กรอกภาควิชา" name="teaPak" />
+                    </div>
+                    <div class="form-group">
+                        <label for="teaSaka">สาขาวิชา :</label>
+                        <input type="string" class="form-control" id="teaSaka" placeholder="กรอกสาขาวิชา" name="teaSaka" />
+                    </div>
+                    <div class="form-group">
+                        <label for="teaL">รายวิชาที่สอน :</label>
+                        <input type="string" class="form-control" id="teaL" placeholder="กรอกวิชาที่สอน" name="teaL" />
+                    </div>
+                    <br />
+                    <button type="button" onclick="alert('แก้ไขข้อมูลสินค้าเรียบร้อย')" class="btn btn-success">
+      เพิ่มข้อมูลคุณครู
+    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm"><img src="https://m.thsport.com/images/column/5000/column-3802-67ec77e3347969674adca9efa3052eb7.jpg" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-sm"><img src="https://3.bp.blogspot.com/-cBQy2o1Gt7c/WChDARUbb9I/AAAAAAAAAHE/7wUjrfkHBvMP_kctg6Wu-wd3mliG7vuUACK4B/s1600/maxresdefault.jpg" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-sm"><img src="https://mpics.mgronline.com/pics/Images/562000005898701.JPEG" class="img-fluid" alt="Responsive image">
+        </div>
+    </div>
+</div>
