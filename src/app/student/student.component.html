@@ -13,7 +13,7 @@ hello student
         <th scope="col">Department</th>
         <th scope="col">Major</th>
         <th scope="col">Subject</th>
-        <th scope="col">Show Dital</th>
+        <th scope="col">Show Detail</th>
         <th scope="col">Delete Student</th>
         <th scope="col">Edit Student</th>
       </tr>
@@ -27,6 +27,9 @@ hello student
         <td>{{ d.stuPak }}</td>
         <td>{{ d.stuSaka }}</td>
         <td>{{ d.subL }}</td>
+        <td><button type="button" class="btn btn-outline-primary" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()" >
+          Show
+        </button></td>
         <td><button type="button" class="btn btn-outline-danger" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()" >
             Delete
           </button></td>
