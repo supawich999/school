@@ -1,5 +1,6 @@
 import { teacher } from './../../models/teacher';
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal , ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -8,6 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teacher.component.css']
 })
 export class TeacherComponent implements OnInit {
+  constructor(private modalService: NgbModal) {}
+
+  public isCollapsed = true;
+  public teacherItem:teacher = {
+    teaId: '',
+    teaPass: '',
+    teaNameSurname: '',
+    teaAddress: '',
+    teaAge: 0,
+    teaPak: '',
+    teaSaka: '',
+    teaL: ''
+  };
 
   data01: teacher[] = [
     {
@@ -18,7 +32,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 22,
       teaPak: "Information Technology",
       teaSaka: "IT",
-      teaL: "SA01",
+      teaL: "English for Career Preparation",
     },
     {
       teaId: "T002",
@@ -28,7 +42,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 25,
       teaPak: "Accounting",
       teaSaka: "AC",
-      teaL: "SA02",
+      teaL: "Listening and Speaking English for Daily-Life Communication",
     },
     {
       teaId: "T003",
@@ -38,7 +52,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 21,
       teaPak: "Political",
       teaSaka: "PA",
-      teaL: "SC03",
+      teaL: "Mathematics for Science 1",
     },
     {
       teaId: "T004",
@@ -48,7 +62,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 27,
       teaPak: "Information Technology",
       teaSaka: "CS",
-      teaL: "SD04",
+      teaL: "Mathematics for Science 2",
     },
     {
       teaId: "T005",
@@ -58,7 +72,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 23,
       teaPak: "Accounting",
       teaSaka: "GM",
-      teaL: "SE05",
+      teaL: "English for Self-Access Learning",
     },
     {
       teaId: "T006",
@@ -68,7 +82,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 29,
       teaPak: "Agriculture",
       teaSaka: "AC",
-      teaL: "SF06",
+      teaL: "Seminar on Research Methodology of Humanities and Social Sciences",
     },
     {
       teaId: "T007",
@@ -78,7 +92,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 35,
       teaPak: "Information Technology",
       teaSaka: "MC",
-      teaL: "SG07",
+      teaL: "Computer Programming",
     },
     {
       teaId: "T008",
@@ -88,7 +102,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 35,
       teaPak: "Information Technology",
       teaSaka: "GIS",
-      teaL: "SH08",
+      teaL: "Engineering Materials",
     },
     {
       teaId: "T009",
@@ -98,7 +112,7 @@ export class TeacherComponent implements OnInit {
       teaAge: 39,
       teaPak: "Information Technology",
       teaSaka: "CMD",
-      teaL: "SI09",
+      teaL: "Nursing Process and Health Assessment",
     },
     {
       teaId: "T010",
@@ -108,20 +122,49 @@ export class TeacherComponent implements OnInit {
       teaAge: 35,
       teaPak: "Information Technology",
       teaSaka: "IT",
-      teaL: "SJ10",
+      teaL: "Health and Environmental Health",
     },
   ]
 
-  public isCollapsed = true;
+  closeResult = "";
+  open(content: any, d: teacher) {    
+    this.teacherItem = d
+    this.modalService
+      .open(content, { ariaLabelledBy: "modal-basic-title" })
+      .result.then(
+        result => {
+          this.closeResult = `Closed with: ${result}`; //Save
+        },
+        reason => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;   //Close Dialog
+        }
+      );
+  }
 
-
-  constructor() { }
-
+  editItem(d: teacher){
+    this.teacherItem = d
+  }
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return "by pressing ESC";
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return "by clicking on a backdrop";
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+  
   ngOnInit(): void {
     function myFunction() {
     }
   }
 
 }
+
+
 export class NgbdDropdownForm {
 }
+
+
+
