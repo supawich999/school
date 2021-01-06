@@ -1,14 +1,14 @@
 <table class="table table-hover">
     <thead class="table-success">
         <tr>
-            <th scope="col">รหัสผู้ใช้</th>
-            <th scope="col">ชื่อ - นามสกุล</th>
-            <th scope="col">ภาควิชา</th>
-            <th scope="col">สาขาวิชา</th>
-            <th scope="col">รายวิชาที่สอน</th>
-            <th scope="col">รายละเอียด</th>
-            <th scope="col">แก้ไขข้อมูล</th>
-            <th scope="col">ลบข้อมูล</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name Surname</th>
+            <th scope="col">Department</th>
+            <th scope="col">Major</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Detail</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
 
         </tr>
     </thead>
@@ -35,14 +35,14 @@
                             <div class="form-group">
                                 <table style="width:100%">
                                     <tr>
-                                        <th>รหัสผู้ใช้</th>
-                                        <th>รหัสผ่าน</th>
-                                        <th>ชื่อ - นามสกุล</th>
-                                        <th>ที่อยู่</th>
-                                        <th>อายุ</th>
-                                        <th>ภาควิชา</th>
-                                        <th>สาขาวิชา</th>
-                                        <th>รายวิชาที่สอน</th>
+                                        <th>ID</th>
+                                        <th>PASSWORD</th>
+                                        <th>Name - Surname</th>
+                                        <th>Address</th>
+                                        <th>Age</th>
+                                        <th>Department</th>
+                                        <th>Major</th>
+                                        <th>Subject</th>
                                     </tr>
                                     <tr>
                                         <td>{{teacherItem.teaId}}</td>
@@ -73,39 +73,39 @@
                             <div ngbDropdownMenu aria-labelledby="dropdownForm1">
                                 <form>
                                     <div class="form-group">
-                                        <label for="teaId">รหัสผู้ใช้ :</label>
+                                        <label for="teaId">ID :</label>
                                         <input type="string" class="form-control" id="teaId" placeholder="กรอกรหัสผู้ใช้" name="teaId" value={{teacherItem.teaId}} />
                                     </div>
                                     <div class="form-group">
-                                        <label for="teaPass">รหัสผ่าน :</label>
+                                        <label for="teaPass">PASSWORD :</label>
                                         <input type="string" class="form-control" id="teaPass" placeholder="กรอกรหัสผ่าน" name="teaPass" value={{teacherItem.teaPass}} />
                                     </div>
                                     <div class="form-group">
-                                        <label for="teaNameSurname">ชื่อ-นามสกุล :</label>
+                                        <label for="teaNameSurname">Name - Surnameล :</label>
                                         <input type="string" class="form-control" id="teaNameSurname" placeholder="กรอกชื่อ - ชื่อ-นามสกุล" name="teaNameSurname" value={{teacherItem.teaNameSurname}} />
                                     </div>
                                     <div class="form-group">
-                                        <label for="teaAddress">ที่อยู่ :</label>
+                                        <label for="teaAddress">Address :</label>
                                         <input type="string" class="form-control" id="teaAddress" placeholder="กรอกที่อยู่" name="teaAddress" value={{teacherItem.teaAddress}} />
                                     </div>
                                     <div class="form-group">
-                                        <label for="teaAge">อายุ :</label>
+                                        <label for="teaAge">Age :</label>
                                         <input type="string" class="form-control" id="teaAge" placeholder="กรอกอายุ" name="teaAge" value={{teacherItem.teaAge}} />
                                     </div>
                                     <div class="price">
-                                        <label for="teaPak">ภาควิชา :</label>
+                                        <label for="teaPak">Department :</label>
                                         <input type="string" class="form-control" id="teaPak" placeholder="กรอกภาควิชา" name="teaPak" value={{teacherItem.teaPak}} />
                                     </div>
                                     <div class="form-group">
-                                        <label for="teaSaka">สาขาวิชา :</label>
+                                        <label for="teaSaka">Major :</label>
                                         <input type="string" class="form-control" id="teaSaka" placeholder="กรอกสาขา" name="teaSaka" value={{teacherItem.teaSaka}} />
                                     </div>
                                     <div class="form-group">
-                                        <label for="teaL">รายวิชาที่สอน :</label>
+                                        <label for="teaL">Subject :</label>
                                         <input type="string" class="form-control" id="teaL" placeholder="กรอกวิชาที่สอน" name="teaL" value={{teacherItem.teaL}} />
                                     </div>
                                     <br />
-                                    <button type="button" onclick="alert('แก้ไขข้อมูลสินค้าเรียบร้อย')" ngbTooltip="คลิ๊กเพื่อทำการลบ" [openDelay]="10" [closeDelay]="50" class="btn btn-success">
+                                    <button type="button" onclick="alert('แก้ไขข้อมูลเรียบร้อย')" ngbTooltip="คลิ๊กเพื่อทำการลบ" [openDelay]="10" [closeDelay]="50" class="btn btn-success">
                   แก้ไขข้อมูล
                 </button>
                                 </form>
@@ -187,3 +187,37 @@
         </div>
     </div>
 </div> -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h1 class="modal-title" id="modal-basic-title">Edit</h1>
+        <button type="button" class="close btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            Close</button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label class="form-label">ID</label>
+                <input class="form-control">
+                <label class="form-label">Password</label>
+                <input class="form-control">
+                <label class="form-label">Name Surname</label>
+                <input class="form-control">
+                <label class="form-label">Address</label>
+                <input class="form-control">
+                <label class="form-label">Age</label>
+                <input class="form-control">
+                <label class="form-label">Department</label>
+                <input class="form-control">
+                <label class="form-label">Major</label>
+                <input class="form-control">
+                <label class="form-label">Subject</label>
+                <input class="form-control">
+
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
