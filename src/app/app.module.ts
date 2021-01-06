@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SubjectComponent } from './subject/subject.component';
 import { HomeComponent } from './home/home.component';
+import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     StudentComponent,
     SubjectComponent,
-    HomeComponent
+    HomeComponent,
+    TeacherDetailComponent
   ],
   imports: [
     BrowserModule,
