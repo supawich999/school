@@ -24,6 +24,11 @@ export class LoginComponent implements OnInit {
   onSubmit(a: NgForm) {
     console.log(a.value.first);
     console.log(a.value.last);
+
+    if (NgForm){
+      alert("login sucsess");
+    }
+    
   }
 
   constructor() { }
