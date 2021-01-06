@@ -1,5 +1,9 @@
+import { DelSubjectComponent } from './../del-subject/del-subject.component';
+import { AddSubjectComponent } from './../add-subject/add-subject.component';
+import { EditSubjectComponent } from './../edit-subject/edit-subject.component';
 import { subject } from './../../models/subject';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 
 const ELEMENT_DATA: subject[] = [
@@ -98,10 +102,22 @@ export class SubjectComponent implements OnInit {
 
   
 
-  displayedColumns: string[] = ['subId', 'subName', 'subPak','subSaka','subStatus'];
+  displayedColumns: string[] = ['subId', 'subName', 'subPak','subSaka','subStatus','row1'];
   dataSource = ELEMENT_DATA;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  editDialog(): void {
+    this.dialog.open(EditSubjectComponent);
+  }
+
+  addDialog(): void {
+    this.dialog.open(AddSubjectComponent);
+  }
+
+  delDialog(): void {
+    this.dialog.open(DelSubjectComponent);
+  }
 
   ngOnInit(): void {
   }

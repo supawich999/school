@@ -1,8 +1,13 @@
+<br>
 <h3>รายวิชาที่เปิด</h3>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<br>
+<br>
+<br>
+<div class="container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-         <!-- Position Column -->
-         <ng-container matColumnDef="subId">
+        <!-- Position Column -->
+        <ng-container matColumnDef="subId">
             <th mat-header-cell *matHeaderCellDef> รหัสวิชา </th>
             <td mat-cell *matCellDef="let element"> {{element.subId}} </td>
         </ng-container>
@@ -29,10 +34,29 @@
             <td mat-cell *matCellDef="let element"> {{element.subStatus}} </td>
         </ng-container>
 
-        
+        <ng-container matColumnDef="row1">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-raised-button (click)="editDialog()">
+                    <mat-icon>settings</mat-icon>
+                </button>
+                &nbsp;&nbsp;
+                <button mat-raised-button (click)="delDialog()" >
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+
+
+        </ng-container>
+
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-   
-  </table>
 
-  <br>
+    </table>
+    <br>
+    <button mat-raised-button (click)="addDialog()" >
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<br>
