@@ -15,6 +15,8 @@ import { OfficerComponent } from './officer/officer.component';
 import { EditSubjectComponent } from './edit-subject/edit-subject.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { DelSubjectComponent } from './del-subject/del-subject.component';
+import { AddofficerComponent } from './officer/addofficer/addofficer.component';
+import { EditofficerComponent } from './officer/editofficer/editofficer.component';
 
 
 
@@ -33,6 +35,8 @@ import { DelSubjectComponent } from './del-subject/del-subject.component';
     AddSubjectComponent,
     DelSubjectComponent,
     OfficerComponent,
+    AddofficerComponent,
+    EditofficerComponent,
 
   ],
   imports: [

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { officer } from '../../models/officer';
+import { MatDialog } from '@angular/material/dialog';
+import { AddofficerComponent } from '../officer/addofficer/addofficer.component';
+import { EditofficerComponent } from '../officer/editofficer/editofficer.component';
 
 @Component({
   selector: 'app-officer',
@@ -55,7 +58,14 @@ export class OfficerComponent implements OnInit {
     alert("Delete complete")
   }
 
-  constructor() { }
+  addofficer(){
+    this.dialog.open(AddofficerComponent);
+  }
+  editofficer(){
+    this.dialog.open(EditofficerComponent);
+  }
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
