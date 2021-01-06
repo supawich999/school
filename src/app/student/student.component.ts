@@ -1,11 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { student } from '../../models/student'
+import { student } from '../../models/student';
+
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+  closeResult = '';
+
+  
+
+  deletealert(){
+    alert("ลบแล้วแต่ไม่ออก")
+    
+  }
 
   data01: student[] = [
     {
@@ -60,7 +70,24 @@ export class StudentComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private modalService: NgbModal) {}
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
   ngOnInit(): void {
     console.log(this.data01);
