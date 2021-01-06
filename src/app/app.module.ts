@@ -19,6 +19,7 @@ import { DelSubjectComponent } from './del-subject/del-subject.component';
 import { AddofficerComponent } from './officer/addofficer/addofficer.component';
 import { EditofficerComponent } from './officer/editofficer/editofficer.component';
 import { EditSubjectComponent } from './edit-subject/edit-subject.component';
+import { EditTeacherComponent } from './teacher/edit-teacher/edit-teacher.component';
 
 
 
@@ -38,7 +39,8 @@ import { EditSubjectComponent } from './edit-subject/edit-subject.component';
     AddofficerComponent,
     EditofficerComponent,
     EditSubjectComponent,
-    OfficerComponent
+    OfficerComponent,
+    EditTeacherComponent
   ],
   imports: [
     BrowserModule,

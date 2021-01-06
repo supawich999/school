@@ -1,8 +1,8 @@
 import { teacher } from './../../models/teacher';
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogOverviewExampleDialog } from './DialogOverviewExampleDialog.1';
+import { EditTeacherComponent } from './edit-teacher/edit-teacher.component';
 
 @Component({
   selector: 'app-teacher',
@@ -25,19 +25,6 @@ export class TeacherComponent implements OnInit {
     teaL: ''
   };
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {
-        //name: this.name, animal: this.animal 
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
-    });
-  }
 
   data01: teacher[] = [
     {
@@ -142,6 +129,8 @@ export class TeacherComponent implements OnInit {
     },
   ]
 
+ 
+
   closeResult = "";
   open(content: any, d: teacher) {
     this.teacherItem = d
@@ -159,8 +148,8 @@ export class TeacherComponent implements OnInit {
 
   }
 
-  editItem(d: teacher) {
-    this.teacherItem = d
+EditTeacher(){
+   this.dialog.open(EditTeacherComponent);
   }
 
   private getDismissReason(reason: any): string {
@@ -174,8 +163,6 @@ export class TeacherComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    function myFunction() {
-    }
   }
 
 }
