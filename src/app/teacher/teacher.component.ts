@@ -4,6 +4,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 import { EditTeacherComponent } from './edit-teacher/edit-teacher.component';
 
+
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
