@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditofficerComponent implements OnInit {
 
+  submit() {
+    alert("Edit complete")
+  }
+
   constructor() { }
 
   ngOnInit(): void {
