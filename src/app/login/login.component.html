@@ -1,8 +1,14 @@
 <body>
-    <form class="container">
+   <form>
         <h2>Log in</h2>
-        <input class="textbox" type="text" placeholder="Username">
-        <input class="textbox" type="password" placeholder="Password">
-        <input class="btn-submit" routerLink="/home" type="submit" value="Login" >
+        <input [(ngModel)]="user" class="textbox" type="text" placeholder="Username">
+        <input [(ngModel)]="pass" class="textbox" type="password" placeholder="Password">
+        <input class="btn-submit" routerLink="/home" type="submit" value="Login">      
+        <button type="button" (click)="test()">test</button>
     </form>
+        <form #a="ngForm" (ngSubmit)="onSubmit(a)">
+            <input name="first" ngModel>
+            <input name="last" ngModel>
+            <button>Submit2</button>
+          </form>
 </body>
