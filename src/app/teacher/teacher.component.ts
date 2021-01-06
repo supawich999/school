@@ -1,18 +1,20 @@
 import { teacher } from './../../models/teacher';
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal, NgbModal , ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOverviewExampleDialog } from './DialogOverviewExampleDialog.1';
 
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
   styleUrls: ['./teacher.component.css']
 })
+
 export class TeacherComponent implements OnInit {
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, public dialog: MatDialog) { }
 
   public isCollapsed = true;
-  public teacherItem:teacher = {
+  public teacherItem: teacher = {
     teaId: '',
     teaPass: '',
     teaNameSurname: '',
@@ -22,6 +24,20 @@ export class TeacherComponent implements OnInit {
     teaSaka: '',
     teaL: ''
   };
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: {
+        //name: this.name, animal: this.animal 
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+    });
+  }
 
   data01: teacher[] = [
     {
@@ -127,24 +143,26 @@ export class TeacherComponent implements OnInit {
   ]
 
   closeResult = "";
-  open(content: any, d: teacher) {    
+  open(content: any, d: teacher) {
     this.teacherItem = d
     this.modalService
-      .open(content, { ariaLabelledBy: "modal-basic-title" })
+      .open(content, { ariaLabelledBy: "modal-basic-title", size: "xl" })
       .result.then(
-        result => {
+        (result) => {
           this.closeResult = `Closed with: ${result}`; //Save
         },
-        reason => {
+        (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;   //Close Dialog
         }
+
       );
+
   }
 
-  editItem(d: teacher){
+  editItem(d: teacher) {
     this.teacherItem = d
   }
-  
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return "by pressing ESC";
@@ -154,7 +172,7 @@ export class TeacherComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  
+
   ngOnInit(): void {
     function myFunction() {
     }
@@ -163,8 +181,6 @@ export class TeacherComponent implements OnInit {
 }
 
 
-export class NgbdDropdownForm {
-}
-
+export class NgbdDropdownForm { }
 
 
