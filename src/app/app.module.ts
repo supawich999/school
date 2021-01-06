@@ -11,16 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SubjectComponent } from './subject/subject.component';
 import { HomeComponent } from './home/home.component';
-<<<<<<< HEAD
-import { OfficerComponent } from './officer/officer.component';
-=======
 import { EditSubjectComponent } from './edit-subject/edit-subject.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { DelSubjectComponent } from './del-subject/del-subject.component';
 import { OfficerComponent } from './officer/officer.component';
 
 
->>>>>>> b5189098636d256af3ec8d07fd4e7ec9b2710c5c
 
 
 @NgModule({
@@ -31,15 +27,11 @@ import { OfficerComponent } from './officer/officer.component';
     StudentComponent,
     SubjectComponent,
     HomeComponent,
-<<<<<<< HEAD
-    OfficerComponent
-=======
     EditSubjectComponent,
     AddSubjectComponent,
     DelSubjectComponent,
     OfficerComponent,
 
->>>>>>> b5189098636d256af3ec8d07fd4e7ec9b2710c5c
   ],
   imports: [
     BrowserModule,
