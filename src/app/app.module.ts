@@ -11,10 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SubjectComponent } from './subject/subject.component';
 import { HomeComponent } from './home/home.component';
+import { OfficerComponent } from './officer/officer.component';
 import { EditSubjectComponent } from './edit-subject/edit-subject.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { DelSubjectComponent } from './del-subject/del-subject.component';
-import { OfficerComponent } from './officer/officer.component';
+
 
 
 
@@ -27,6 +28,7 @@ import { OfficerComponent } from './officer/officer.component';
     StudentComponent,
     SubjectComponent,
     HomeComponent,
+    OfficerComponent,
     EditSubjectComponent,
     AddSubjectComponent,
     DelSubjectComponent,
