@@ -14,8 +14,8 @@ hello student
         <th scope="col">Major</th>
         <th scope="col">Subject</th>
         <th scope="col">Show Detail</th>
-        <th scope="col">Delete Student</th>
         <th scope="col">Edit Student</th>
+        <th scope="col">Delete Student</th>
       </tr>
     </thead>
     <tbody>
@@ -27,15 +27,29 @@ hello student
         <td>{{ d.stuPak }}</td>
         <td>{{ d.stuSaka }}</td>
         <td>{{ d.subL }}</td>
-        <td><button type="button" class="btn btn-outline-primary" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()" >
-          Show
-        </button></td>
+        <td>
+          <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+            <ngb-panel title="Show">
+              <ng-template ngbPanelContent>
+                <p>Name : {{ d.stuNameSurname }}</p>
+        <p> Address : {{ d.stuAddress }}</p>
+        <p> Age : {{ d.stuAge }}</p>
+        <p> Department : {{ d.stuPak }}</p>
+        <p>Major : {{ d.stuSaka }}</p>
+        <p>Subject : {{ d.subL }}</p>
+              </ng-template>
+            </ngb-panel>
+            
+          </ngb-accordion></td>
+        <td>
+          <button type="button" class="btn btn-outline-warning" ngbPopover="Edit" triggers="mouseenter:mouseleave" popoverTitle="Click to Edit " (click)="open(content)" >
+          Edit
+        </button>
+      </td>
         <td><button type="button" class="btn btn-outline-danger" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()" >
             Delete
           </button></td>
-          <td><button type="button" class="btn btn-outline-warning" ngbPopover="Edit" triggers="mouseenter:mouseleave" popoverTitle="Click to Edit " (click)="open(content)" >
-            Edit
-          </button></td>
+          
 
       </tr>
       </table>
@@ -86,22 +100,18 @@ hello student
         </div>
 
        
-
-
-        
-
         
 
         <ng-template #content let-modal>
           <div class="modal-header">
             <h1 class="modal-title" id="modal-basic-title">Edit Student</h1>
-            <button type="button" class="close btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <button type="button" class="btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
               <span aria-hidden="true">&times;</span>
             Close</button>
           </div>
           <div class="modal-body">
             <form>
-              <div class="form-group">
+              <div class="row">
                 <label  class="form-label">ID</label>
                 <input  class="form-control"  >
                 <label  class="form-label">Password</label>
@@ -127,3 +137,12 @@ hello student
           </div>
         </ng-template>
         
+
+        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+          <ngb-panel title="Simple">
+            <ng-template ngbPanelContent>
+             
+            </ng-template>
+          </ngb-panel>
+          
+        </ngb-accordion>
