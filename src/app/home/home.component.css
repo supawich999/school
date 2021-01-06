@@ -56,13 +56,14 @@ header {
 }
 
 .welcome-text h1 {
-    text-align: center;
+    text-align: right;
     color: #34495e;
     text-transform: uppercase;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .welcome-text a {
+    margin-left: 50%;
     border: 1px solid #34495e;
     padding: 10px 25px;
     text-decoration: none;
