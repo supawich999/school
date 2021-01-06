@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { EditSubjectComponent } from './edit-subject/edit-subject.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { DelSubjectComponent } from './del-subject/del-subject.component';
+import { OfficerComponent } from './officer/officer.component';
 
 
 
@@ -28,6 +29,7 @@ import { DelSubjectComponent } from './del-subject/del-subject.component';
     EditSubjectComponent,
     AddSubjectComponent,
     DelSubjectComponent,
+    OfficerComponent,
 
   ],
   imports: [
