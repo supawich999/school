@@ -2,7 +2,7 @@ import { teacher } from './../../models/teacher';
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogOverviewExampleDialog } from './DialogOverviewExampleDialog.1';
+
 
 @Component({
   selector: 'app-teacher',
@@ -24,20 +24,6 @@ export class TeacherComponent implements OnInit {
     teaSaka: '',
     teaL: ''
   };
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {
-        //name: this.name, animal: this.animal 
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
-    });
-  }
 
   data01: teacher[] = [
     {
