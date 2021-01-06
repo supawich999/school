@@ -5,3 +5,9 @@ export interface subject {
     subSaka: string;
     subStatus: string;
 }
+
+
+  
+  
+  
+ 
