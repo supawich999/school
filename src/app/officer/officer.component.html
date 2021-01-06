@@ -1,9 +1,16 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<h1>
-    hello officers
-</h1>
+
+<mat-toolbar color="primary">
 <h1>Show Officers</h1>
+</mat-toolbar>
+
+<div class="container-button">
+    <div class="add-button">
+        <button mat-raised-button color='primary' (click)="addofficer()">Add Officer</button>
+    </div>
+</div>
+
 <table class="table ">
     <thead>
         <tr>
@@ -23,24 +30,57 @@
             <td>{{ d.offAddress }}</td>
             <td>{{ d.offRank }}</td>
             <td>{{ d.offDepartment }}</td>
-            <td><button type="button" class="btn btn-outline-primary" ngbPopover="Delete"
-                    triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()">
+            <td><button type="button" class="btn btn-outline-primary" triggers="mouseenter:mouseleave"
+                    (click)="open(content, d)">
                     Show
-                </button></td>
-            <td><button type="button" class="btn btn-outline-danger" ngbPopover="Delete"
-                    triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()">
+                </button>
+
+                <ng-template #content let-modal>
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Data</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <table style="width:100%">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Pass</th>
+                                        <th>Name Surname</th>
+                                        <th>Address</th>
+                                        <th>Rank</th>
+                                        <th>Department</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ officerdata.offId }}</td>
+                                        <td>{{ officerdata.offPass }}</td>
+                                        <td>{{ officerdata.offNameSurname }}</td>
+                                        <td>{{ officerdata.offAddress }}</td>
+                                        <td>{{ officerdata.offRank }}</td>
+                                        <td>{{ officerdata.offDepartment }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
+                            Close
+                        </button>
+                    </div>
+                </ng-template>
+            </td>
+            <td><button type="button" class="btn btn-outline-danger" triggers="mouseenter:mouseleave"
+                    (click)="deletealert()">
                     Delete
                 </button></td>
-            <td><button type="button" class="btn btn-outline-warning" ngbPopover="Edit" triggers="mouseenter:mouseleave"
-                    popoverTitle="Click to Edit " (click)="editofficer()">
+            <td><button type="button" class="btn btn-outline-warning" triggers="mouseenter:mouseleave"
+                    (click)="editofficer()">
                     Edit
                 </button></td>
 
         </tr>
 </table>
-
-<div class="container-button">
-    <div class="add-button">
-        <button mat-raised-button color='primary' (click) = "addofficer()">Add Officer</button>
-    </div>
-</div>
