@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 <mat-toolbar color="primary">
-=======
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<h1>
-    hello officers
-</h1>
->>>>>>> poom
-<h1>Show Officers</h1>
+    <h1>Show Officers</h1>
 </mat-toolbar>
 
 <div class="container-button">
@@ -37,9 +29,7 @@
             <td>{{ d.offAddress }}</td>
             <td>{{ d.offRank }}</td>
             <td>{{ d.offDepartment }}</td>
-<<<<<<< HEAD
-            <td><button type="button" class="btn btn-outline-primary" triggers="mouseenter:mouseleave"
-                    (click)="open(content, d)">
+            <td><button type="button" class="btn btn-outline-primary" triggers="mouseenter:mouseleave" (click)="open(content, d)">
                     Show
                 </button>
 
@@ -81,32 +71,12 @@
                     </div>
                 </ng-template>
             </td>
-            <td><button type="button" class="btn btn-outline-danger" triggers="mouseenter:mouseleave"
-                    (click)="deletealert()">
+            <td><button type="button" class="btn btn-outline-danger" triggers="mouseenter:mouseleave" (click)="deletealert()">
                     Delete
                 </button></td>
-            <td><button type="button" class="btn btn-outline-warning" triggers="mouseenter:mouseleave"
-                    (click)="editofficer()">
-=======
-            <td><button type="button" class="btn btn-outline-primary" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()">
-                    Show
-                </button></td>
-            <td><button type="button" class="btn btn-outline-danger" ngbPopover="Delete" triggers="mouseenter:mouseleave" popoverTitle="Click to Delete " (click)="deletealert()">
-                    Delete
-                </button></td>
-            <td><button type="button" class="btn btn-outline-warning" ngbPopover="Edit" triggers="mouseenter:mouseleave" popoverTitle="Click to Edit " (click)="editofficer()">
->>>>>>> poom
+            <td><button type="button" class="btn btn-outline-warning" triggers="mouseenter:mouseleave" (click)="editofficer()">
                     Edit
                 </button></td>
 
         </tr>
 </table>
-<<<<<<< HEAD
-=======
-
-<div class="container-button">
-    <div class="add-button">
-        <button mat-raised-button color='primary' (click)="addofficer()">Add Officer</button>
-    </div>
-</div>
->>>>>>> poom
