@@ -1,3 +1,4 @@
+import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { teacher } from './../../models/teacher';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -147,6 +148,9 @@ export class TeacherComponent implements OnInit {
 
       );
 
+  }
+  AddTeacher() {
+    this.dialog.open(AddTeacherComponent);
   }
 
 EditTeacher(){
