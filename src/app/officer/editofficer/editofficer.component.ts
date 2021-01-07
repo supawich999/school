@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editofficer',
@@ -7,11 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditofficerComponent implements OnInit {
 
+  profileForm = this.fb.group({
+    nameSurname: ['', Validators.required],
+    authenForm: this.fb.group({
+      idOfficer: ['', Validators.required],
+      passOfficer: ['', Validators.required],
+    }),
+    dataForm: this.fb.group({
+      address: [''],
+      rank: [''],
+      department: ['']
+    })
+  });
+
   submit() {
     alert("Edit complete")
+    console.warn(this.profileForm.value);
   }
 
-  constructor() { }
+  onSubmit() {
+    console.warn(this.profileForm.value);
+  }
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
