@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddofficerComponent implements OnInit {
 
+  submit() {
+    alert("Add complete")
+  }
+
   constructor() { }
 
   ngOnInit(): void {
