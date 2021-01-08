@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 
+
 @Component({
   selector: 'app-subject',
   templateUrl: './subject.component.html',
@@ -12,7 +13,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubjectComponent implements OnInit {
 
+
   constructor(private modalService: NgbModal, public dialog: MatDialog) { }
+
+
+
 
   public isCollapsed = true;
   public subjectItem: subject = {
@@ -102,6 +107,7 @@ export class SubjectComponent implements OnInit {
   
   ]
 
+  
   closeResult = "";
   open(content: any, d: subject) {
     this.subjectItem = d
@@ -134,8 +140,10 @@ export class SubjectComponent implements OnInit {
   }
 
 
-
   ngOnInit(): void {
+
+    
   }
+
 
 }
