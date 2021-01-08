@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { student } from '../../models/student';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+
+
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -9,8 +13,28 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class StudentComponent implements OnInit {
   closeResult = '';
-
+  profileForm = this.fb.group({
+    Id: ['', Validators.required],
+    Password: ['', Validators.required], 
+    NameSurname: ['', Validators.required], 
+    Address: ['', Validators.required], 
+    Age: ['', Validators.required], 
+    Department: ['', Validators.required], 
+    Major: ['', Validators.required],
+    Subject: ['', Validators.required], 
+    
+  });
   
+  
+
+  onSubmit() {
+    
+    console.warn(this.profileForm.value);
+    alert("Success")
+  }
+  
+ 
+
 
   deletealert(){
     alert("ลบแล้วแต่ไม่ออก")
@@ -70,7 +94,8 @@ export class StudentComponent implements OnInit {
     }
   ]
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal , private fb: FormBuilder ) {}
+  
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

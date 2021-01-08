@@ -56,48 +56,53 @@
       <hr>
       <h1>Add Student</h1>
 <div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    
       <div class="container">
         <div class="row">
             <div class="col-md-3">
-            <label class="form-label">ID</label>
-            <input  class="form-control"  >
+            <label class="form-label">Id</label>
+            <input  class="form-control" type="text" formControlName="Id"  >
             </div>
           
           <div class="col-md-3">
             <label  class="form-label">Password</label>
-            <input  class="form-control"  >
+            <input  class="form-control" type="text" formControlName="Password" >
           </div>
         
           <div class="col-md-6">
             <label  class="form-label">Name Surname</label>
-            <input  class="form-control"  >
+            <input  class="form-control" type="text" formControlName="NameSurname" >
           </div>
         
           <div class="col-md-6">
             <label  class="form-label">Address</label>
-            <input  class="form-control"  >
+            <input  class="form-control" type="text" formControlName="Address" >
           </div>
           <div class="col-md-6">
             <label  class="form-label">Age</label>
-            <input  class="form-control"  >
+            <input  class="form-control" type="text"  formControlName="Age" >
           </div>
           <div class="col-md-4">
             <label  class="form-label">Department</label>
-            <input  class="form-control"  >
+            <input  class="form-control" type="text" formControlName="Department" >
           </div>
           <div class="col-md-4">
             <label  class="form-label">Major</label>
-            <input  class="form-control"  >
+            <input  class="form-control" type="text"  formControlName="Major">
           </div>
           <div class="col-md-4">
             <label  class="form-label">Subject</label>
-            <input  class="form-control"  >
+            <input  class="form-control" type="text"  formControlName="Subject" >
           </div>
         </div>
-        <button type="button" class="btn btn-outline-success" ngbPopover="Add Sutdeunt" triggers="mouseenter:mouseleave" popoverTitle="Click to Add Sutdeunt" >
+        <br>
+        <button type="submit" class="btn btn-outline-success" ngbPopover="Add Sutdeunt" triggers="mouseenter:mouseleave" popoverTitle="Click to Add Sutdeunt" [disabled]="!profileForm.valid" >
             Add Sutdeunt
           </button>
         </div>
+      </form>
+</div>
 
        
         
@@ -112,30 +117,66 @@
           <div class="modal-body">
             <form>
               <div class="row">
+                <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
                 <label  class="form-label">ID</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="Id"  >
                 <label  class="form-label">Password</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="Password" >
                 <label  class="form-label">Name Surname</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="NameSurname" >
                 <label  class="form-label">Address</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="Address" >
                 <label  class="form-label">Age</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="Age" >
                 <label  class="form-label">Department</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="Department" >
                 <label  class="form-label">Major</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="Major" >
                 <label  class="form-label">Subject</label>
-                <input  class="form-control"  >
+                <input  class="form-control" formControlName="Subject" >
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-outline-success" ngbPopover="Add Sutdeunt" triggers="mouseenter:mouseleave" popoverTitle="Click to Add Sutdeunt" [disabled]="!profileForm.valid" >
+                    Save
+                  </button>
+                </div>
+              </form>
                
               </div>
             </form>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Save</button>
-          </div>
+         
         </ng-template>
+
         
+
+      <br><br><br><br><br><br><br><br>
+      <h2>test</h2>
+      <p>
+        Form Value: {{ profileForm.value | json }}
+      </p>
+      
+      <form action="/action_page.php" class="was-validated">
+        <div class="form-group">
+          <label for="uname">Username:</label>
+          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Check this checkbox to continue.</div>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <br><br><br><br><br><br><br><br>
 
       
