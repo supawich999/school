@@ -71,23 +71,23 @@
                                 <form>
                                     <div class="form-group">
                                         <label for="teaId">รหัสวิชา :</label>
-                                        <input type="string" class="form-control" id="teaId" placeholder="กรอกรหัสผู้ใช้" name="teaId" value={{subjectItem.subId}} />
+                                        <input type="string" class="form-control" id="subId" placeholder="กรอกรหัสผู้ใช้" name="subId" value={{subjectItem.subId}} />
                                     </div>
                                     <div class="form-group">
                                         <label for="teaPass">ชื่อวิชา :</label>
-                                        <input type="string" class="form-control" id="teaPass" placeholder="กรอกรหัสผ่าน" name="teaPass" value={{subjectItem.subName}} />
+                                        <input type="string" class="form-control" id="subName" placeholder="กรอกชื่อวิชา" name="subName" value={{subjectItem.subName}} />
                                     </div>
                                     <div class="form-group">
                                         <label for="teaNameSurname">คณะ :</label>
-                                        <input type="string" class="form-control" id="teaNameSurname" placeholder="กรอกชื่อ - ชื่อ-นามสกุล" name="teaNameSurname" value={{subjectItem.subPak}} />
+                                        <input type="string" class="form-control" id="subPak" placeholder="กรอกคณะ" name="subPak" value={{subjectItem.subPak}} />
                                     </div>
                                     <div class="form-group">
                                         <label for="teaAddress">สาขา :</label>
-                                        <input type="string" class="form-control" id="teaAddress" placeholder="กรอกที่อยู่" name="teaAddress" value={{subjectItem.subSaka}} />
+                                        <input type="string" class="form-control" id="subSaka" placeholder="กรอกสาขา" name="subSaka" value={{subjectItem.subSaka}} />
                                     </div>
                                     <div class="form-group">
                                         <label for="teaAge">สถานะ :</label>
-                                        <input type="string" class="form-control" id="teaAge" placeholder="กรอกอายุ" name="teaAge" value={{subjectItem.subStatus}} />
+                                        <input type="string" class="form-control" id="subStatus" placeholder="กรอกสถานะ" name="subStatus" value={{subjectItem.subStatus}} />
                                     </div>
                                 
                                     <br />
@@ -121,32 +121,50 @@
         <div class="card-body">
             <div class="container">
                 <h2>เพิ่มข้อมูล</h2>
-                <form >
+                <form [formGroup]="subForm" (ngSubmit)="onSubmit()" >
                     <div class="form-group">
-                        <label for="teaId">รหัสวิชา :</label>
-                        <input type="string" class="form-control" id="teaId" placeholder="กรอกรหัสวิชา" name="teaId" />
+                        <label >รหัสวิชา :</label>
+                        <input type="text" class="form-control" placeholder="กรอกรหัสวิชา" formControlName="idSub" required [ngClass]="{ 'is-invalid': submitted && a.idSub.errors }" />
+                        <div *ngIf="submitted && a.idSub.errors" class="invalid-feedback">
+                            <div *ngIf="a.idSub.errors.required">กรุณากรอกรหัสวิชา</div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="teaPass">ชื่อวิชา :</label>
-                        <input type="string" class="form-control" id="teaPass" placeholder="กรอกชื่อวิชา" name="teaPass" />
+                        <label >ชื่อวิชา :</label>
+                        <input type="text" class="form-control"  placeholder="กรอกชื่อวิชา" formControlName="nameSub" required [ngClass]="{ 'is-invalid': submitted && a.nameSub.errors }" />
+                        <div *ngIf="submitted && a.nameSub.errors" class="invalid-feedback">
+                            <div *ngIf="a.nameSub.errors.required">กรุณากรอกชื่อวิชา</div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="teaNameSurname">คณะ :</label>
-                        <input type="string" class="form-control" id="teaNameSurname" placeholder="กรอกชื่อคณะ" name="teaNameSurname" />
+                        <label >คณะ :</label>
+                        <input type="text" class="form-control"  placeholder="กรอกชื่อคณะ" formControlName="pakSub" required  [ngClass]="{ 'is-invalid': submitted && a.pakSub.errors }" />
+                        <div *ngIf="submitted && a.pakSub.errors" class="invalid-feedback">
+                            <div *ngIf="a.pakSub.errors.required">กรุณากรอกชื่อคณะ</div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="teaAddress">สาขา :</label>
-                        <input type="string" class="form-control" id="teaAddress" placeholder="กรอกสาขา" name="teaAddress" />
+                        <label >สาขา :</label>
+                        <input type="text" class="form-control"  placeholder="กรอกสาขา" formControlName="sakaSub" required [ngClass]="{ 'is-invalid': submitted && a.sakaSub.errors }" />
+                        <div *ngIf="submitted && a.sakaSub.errors" class="invalid-feedback">
+                            <div *ngIf="a.sakaSub.errors.required">กรุณากรอกสาขา</div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="teaAge">สถานะ :</label>
-                        <input type="string" class="form-control" id="teaAge" placeholder="กรอกสถานะ" name="teaAge" />
+                        <label >สถานะ :</label>
+                        <input type="text" class="form-control"  placeholder="กรอกสถานะ" formControlName="statusSub" required [ngClass]="{ 'is-invalid': submitted && a.statusSub.errors }" />
+                        <div *ngIf="submitted && a.statusSub.errors" class="invalid-feedback">
+                            <div *ngIf="a.statusSub.errors.required">กรุณากรอกสถานะ</div>
+                        </div>
                     </div>
          
                     <br />
-                    <button type="button" onclick="alert('แก้ไขข้อมูลสินค้าเรียบร้อย')" class="btn btn-success">
-      เพิ่มข้อมูลคุณครู
-    </button>
+                    <div class="form-group">
+                        <button [disabled]="" class="btn btn-success" >
+                            เพิ่มข้อมูลคุณครู
+                          </button>
+                    </div>
+           
                 </form>
             </div>
         </div>
