@@ -6,6 +6,7 @@
 
 <div class="input">
     <div class="input-container">
+<<<<<<< HEAD
         <mat-form-field appearance="fill">
             <mat-label>Officer ID:</mat-label>
             <input matInput>
@@ -38,5 +39,50 @@
         <br>
         <button mat-raised-button color="primary" (click)="submit()">Submit</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <button mat-raised-button mat-dialog-close>Cancel</button>
+=======
+        <form [formGroup]="profileForm">
+            <div formGroupName="authenForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Officer ID:</mat-label>
+                    <input matInput formControlName="idOfficer" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Officer Password:</mat-label>
+                    <input matInput formControlName="passOfficer" required>
+                </mat-form-field>
+                <br>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Officer Namesurname:</mat-label>
+                <input matInput type="text" formControlName="nameSurname" required>
+            </mat-form-field>
+            <br>
+            <div formGroupName="dataForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Officer Address:</mat-label>
+                    <input matInput type="text" formControlName="address">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Officer Rank:</mat-label>
+                    <input matInput type="text" formControlName="rank">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Officer Department:</mat-label>
+                    <input matInput type="text" formControlName="department">
+                </mat-form-field>
+                <br>
+            </div>
+        </form>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <button mat-raised-button type="submit" [disabled]="!profileForm.valid" color="primary"
+                (click)="submit()">Submit</button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button mat-raised-button mat-dialog-close>Cancel</button>
+        </form>
+
+>>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
     </div>
 </div>

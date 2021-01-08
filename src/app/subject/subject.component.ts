@@ -2,6 +2,9 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 import { subject } from './../../models/subject';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
 
 
 
@@ -12,7 +15,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubjectComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor(private modalService: NgbModal, public dialog: MatDialog) { }
+=======
+  subForm = this.fb.group({
+    idSub: ['', Validators.required],
+    nameSub: ['', Validators.required],
+    pakSub: ['', Validators.required],
+    sakaSub: ['', Validators.required],
+    statusSub: ['', Validators.required],
+
+
+  });
+
+  submitted = false;
+
+  get a() { return this.subForm.controls; }
+
+  // submit() {
+  //   alert("Add complete")
+  //   console.warn(this.subForm.value);
+  // }
+  onSubmit() {
+     this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.subForm.invalid) {
+        return;
+    }
+
+    alert('SUCCESS!! :-)')
+}
+
+  constructor(private modalService: NgbModal, public dialog: MatDialog, private fb: FormBuilder) { }
+
+
+
+>>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
 
   public isCollapsed = true;
   public subjectItem: subject = {
@@ -102,6 +141,10 @@ export class SubjectComponent implements OnInit {
   
   ]
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
   closeResult = "";
   open(content: any, d: subject) {
     this.subjectItem = d
@@ -133,9 +176,18 @@ export class SubjectComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
 
   ngOnInit(): void {
+
+
   }
+
+
+
 
 }

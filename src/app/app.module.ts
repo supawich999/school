@@ -2,6 +2,7 @@ import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,10 @@ import { AddofficerComponent } from './officer/addofficer/addofficer.component';
 import { EditofficerComponent } from './officer/editofficer/editofficer.component';
 import { EditSubjectComponent } from './edit-subject/edit-subject.component';
 import { EditTeacherComponent } from './teacher/edit-teacher/edit-teacher.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AddTeacherComponent } from './teacher/add-teacher/add-teacher.component';
+
+
+
 
 
 
@@ -41,7 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     EditofficerComponent,
     EditSubjectComponent,
     OfficerComponent,
-    EditTeacherComponent
+    EditTeacherComponent,
+    AddTeacherComponent
   ],
   imports: [
     BrowserModule,

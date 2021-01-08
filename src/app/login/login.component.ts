@@ -1,8 +1,12 @@
+import { Router, Routes } from '@angular/router';
+import { TeacherComponent } from './../teacher/teacher.component';
+import { StudentComponent } from './../student/student.component';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { student } from '../../models/student';
 import { teacher } from './../../models/teacher';
+
+
 
 @Component({
   selector: 'app-login',
@@ -181,7 +185,6 @@ export class LoginComponent implements OnInit {
       teaL: "Health and Environmental Health",
     },
   ]
-
   test() {
     console.log(this.name);
     console.log(this.user);
@@ -189,8 +192,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(a: NgForm) {
-    //console.log(a.value.first);
-    //console.log(a.value.last);
+    // console.log(a.value.first);
+    // console.log(a.value.last);
 
     let id = a.value.first
     let pass = a.value.last
@@ -198,19 +201,18 @@ export class LoginComponent implements OnInit {
     console.log(pass);
     let checkStudent = this.data01.find(it => it.stuId == id && it.stuPass == pass);
     let checkTeacher = this.data02.find(it => it.teaId == id && it.teaPass == pass);
+    // (checkStudent || checkTeacher)
 
-    if(checkStudent || checkTeacher){
+    if (checkStudent || checkTeacher) {
       alert("welcome")
       this.router.navigate(['/home']);
-    }else{
-      alert("welcome")
-      this.router.navigate(['/home']);
+    } else {
+      alert("not")
+
     }
-    
+
+
   }
-
-  //constructor(public router: Router) { }
-
 
   checkstu(data01: student) {
     console.log(data01.stuId);
