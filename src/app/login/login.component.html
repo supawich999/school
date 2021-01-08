@@ -1,14 +1,16 @@
 <body>
-   <form>
-        <h2>Log in</h2>
-        <input [(ngModel)]="user" class="textbox" type="text" placeholder="Username">
-        <input [(ngModel)]="pass" class="textbox" type="password" placeholder="Password">
-        <input class="btn-submit" routerLink="/home" type="submit" value="Login">      
-        <button type="button" (click)="test()">test</button>
+    <form #a="ngForm" (ngSubmit)="onSubmit(a)">
+    <form [formGroup]="loginForm1" class="container" #a="ngForm" (ngSubmit)="onSubmit(a)">
+        <h1>Log in</h1>
+        <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username" name="first" ngModel>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password" name="last" ngModel>    
+          </mat-form-field>
+      
+          <button [disabled]="!loginForm1.valid" mat-raised-button color="primary" mat-button >Sign In</button>
     </form>
-        <form #a="ngForm" (ngSubmit)="onSubmit(a)">
-            <input name="first" ngModel>
-            <input name="last" ngModel>
-            <button>Submit2</button>
-          </form>
+</form>
 </body>

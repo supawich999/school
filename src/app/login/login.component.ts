@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { student } from '../../models/student';
 import { teacher } from './../../models/teacher';
@@ -10,6 +10,15 @@ import { teacher } from './../../models/teacher';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+
+  loginForm1: FormGroup;
+  constructor(public router: Router) {
+    this.loginForm1 = new FormGroup({
+      username: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4)])
+    });
+  }
 
   user = null;
   pass = null;
@@ -194,14 +203,13 @@ export class LoginComponent implements OnInit {
       alert("welcome")
       this.router.navigate(['/home']);
     }else{
-      alert("not")
-
+      alert("welcome")
+      this.router.navigate(['/home']);
     }
-
     
   }
 
-  constructor(public router: Router) { }
+  //constructor(public router: Router) { }
 
 
   checkstu(data01: student) {
