@@ -1,0 +1,59 @@
+<div class="head">
+    <div class="head-container">
+        <h1>Add Teacher</h1>
+    </div>
+</div>
+
+<div class="input">
+    <div class="input-container">
+        <form [formGroup]="profileForm">
+            <mat-form-field appearance="fill">
+                <mat-label>ID :</mat-label>
+                <input matInput formControlName="ID" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>PASSWORD :</mat-label>
+                <input matInput formControlName="PASSWORD" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Name - Surname :</mat-label>
+                <input matInput formControlName="NameSurname" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Address :</mat-label>
+                <input matInput formControlName="Address" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Age :</mat-label>
+                <input matInput formControlName="Age" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Department :</mat-label>
+                <input matInput formControlName="Department" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Major :</mat-label>
+                <input matInput formControlName="Major" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Subject :</mat-label>
+                <input matInput formControlName="Subject" />
+            </mat-form-field>
+        </form>
+        <br />
+        <br />
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <button mat-raised-button color="primary" (click)="submit()" type="submit" [disabled]="!profileForm.valid">
+        Submit
+      </button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button mat-raised-button mat-dialog-close>Cancel</button>
+        </form>
+    </div>
+</div>
