@@ -15,9 +15,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SubjectComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private modalService: NgbModal, public dialog: MatDialog) { }
-=======
   subForm = this.fb.group({
     idSub: ['', Validators.required],
     nameSub: ['', Validators.required],
@@ -51,7 +48,6 @@ export class SubjectComponent implements OnInit {
 
 
 
->>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
 
   public isCollapsed = true;
   public subjectItem: subject = {
@@ -141,10 +137,7 @@ export class SubjectComponent implements OnInit {
   
   ]
 
-<<<<<<< HEAD
-=======
   
->>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
   closeResult = "";
   open(content: any, d: subject) {
     this.subjectItem = d
@@ -176,11 +169,7 @@ export class SubjectComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-
-=======
  
->>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
 
   ngOnInit(): void {
 

@@ -10,13 +10,6 @@ import { Validators } from '@angular/forms';
 })
 export class AddofficerComponent implements OnInit {
 
-<<<<<<< HEAD
-  submit() {
-    alert("Add complete")
-  }
-
-  constructor() { }
-=======
   profileForm = this.fb.group({
     nameSurname: ['', Validators.required],
     authenForm: this.fb.group({
@@ -40,7 +33,6 @@ export class AddofficerComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder) { }
->>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
 
   ngOnInit(): void {
   }

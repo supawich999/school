@@ -148,12 +148,9 @@ export class TeacherComponent implements OnInit {
 
       );
 
-<<<<<<< HEAD
-=======
   }
   AddTeacher() {
     this.dialog.open(AddTeacherComponent);
->>>>>>> ecdd6aeb531ba8cbea97318511198edf44fbeaf5
   }
 
 EditTeacher(){
