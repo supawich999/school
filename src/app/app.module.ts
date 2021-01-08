@@ -21,6 +21,7 @@ import { EditofficerComponent } from './officer/editofficer/editofficer.componen
 import { EditSubjectComponent } from './edit-subject/edit-subject.component';
 import { EditTeacherComponent } from './teacher/edit-teacher/edit-teacher.component';
 import { AddTeacherComponent } from './teacher/add-teacher/add-teacher.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -50,7 +51,8 @@ import { AddTeacherComponent } from './teacher/add-teacher/add-teacher.component
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
