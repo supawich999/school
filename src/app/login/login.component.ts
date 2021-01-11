@@ -2,7 +2,7 @@ import { Router, Routes } from '@angular/router';
 import { TeacherComponent } from './../teacher/teacher.component';
 import { StudentComponent } from './../student/student.component';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { student } from '../../models/student';
 import { teacher } from './../../models/teacher';
 
@@ -14,6 +14,15 @@ import { teacher } from './../../models/teacher';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+
+  loginForm1: FormGroup;
+  constructor(public router: Router) {
+    this.loginForm1 = new FormGroup({
+      username: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4)])
+    });
+  }
 
   user = null;
   pass = null;
@@ -193,20 +202,17 @@ export class LoginComponent implements OnInit {
     let checkStudent = this.data01.find(it => it.stuId == id && it.stuPass == pass);
     let checkTeacher = this.data02.find(it => it.teaId == id && it.teaPass == pass);
     // (checkStudent || checkTeacher)
-    
-    if(checkStudent || checkTeacher){
+
+    if (checkStudent || checkTeacher) {
       alert("welcome")
       this.router.navigate(['/home']);
-    }else{
+    } else {
       alert("not")
 
     }
-    
+
 
   }
-
-  constructor(public router: Router) { }
-
 
   checkstu(data01: student) {
     console.log(data01.stuId);

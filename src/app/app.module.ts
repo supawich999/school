@@ -28,6 +28,8 @@ import { AddTeacherComponent } from './teacher/add-teacher/add-teacher.component
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
